@@ -19,27 +19,6 @@ var config = {
         text: 'API',
         href: '/api',
       },
-    ],
-
-    customLayouts: [
-      {
-        match: { on: '*', by: 'url' },
-        augment: true,
-        regions: [
-          {
-            name: 'Layout::Sidebar',
-            outlets: [
-              {
-                name: 'Image',
-                options: {
-                  src: '/images/orientdb_logo_2x11.png'
-                }
-              },
-            ]
-          }
-        ]
-      },
-
     ]
   }
 };
