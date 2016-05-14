@@ -1,0 +1,5 @@
+-m markdown
+--output-dir public/doc/backend
+--protected
+-r README.md
+--title "Pibi API Backend"

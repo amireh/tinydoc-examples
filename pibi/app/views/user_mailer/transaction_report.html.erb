@@ -1,0 +1,34 @@
+<table>
+  <thead>
+    <tr>
+      <th>Categories</th>
+      <th>Note</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |tx| %>
+      <% is_expense = tx.type == 'Expense' %>
+
+      <tr class="<%= is_expense ? 'expense' : 'income' %>">
+        <td>
+          <%= tx.categories.map(&:name).join(', ') %>
+        </td>
+        <td>
+          <% if tx.note.blank? %>
+            <em>No note provided.</em>
+          <% else %>
+            <%= tx.note %>
+          <% end %>
+        </td>
+
+        <td>
+          <div class="amount-details">
+            <%= sprintf("%0.02f", tx.amount * (is_expense ? -1 : 1)) %>
+            <%= tx.currency %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,50 @@
+# Pibi application config.
+development: &common
+  application:
+    user:
+      # Newly created users will be served with the following payment methods:
+      default_payment_methods:
+        - name: Cash
+          color: FF0000
+          default: true
+        - name: Credit Card
+          color: 00FF00
+        - name: Cheque
+          color: 0000FF
+      # Newly created users will be served with the following categories:
+      default_categories:
+        - Baby
+        - Bills
+        - Car
+        - Cinema
+        - Clothes
+        - Electronics
+        - Food
+        - Fun
+        - Gaming
+        - Gifts
+        - Groceries
+        - Hobbies
+        - Household
+        - Luxury
+        - Medicine
+        - Music
+        - Nightlife
+        - Online
+        - Phone
+        - Salary
+        - School
+        - Shopping
+        - Travel
+        - Utility
+
+production:
+  <<: *common
+
+test:
+  <<: *common
+  application:
+    user:
+      # don't create these resources in tests as it's quite expensive
+      default_payment_methods: []
+      default_categories: []

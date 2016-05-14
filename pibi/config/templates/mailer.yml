@@ -1,0 +1,34 @@
+# ActionMailer configuration.
+#
+# You can use either smtp or sendmail for delivery.
+#
+# See http://guides.rubyonrails.org/action_mailer_basics.html
+development:
+  mailer: &common
+    host: localhost
+    delivery_method: sendmail
+    perform_deliveries: true
+    raise_delivery_errors: false
+    default_options:
+      from: Pibi Customer Service <pibi@localhost>
+    sendmail_settings:
+      location: '/usr/sbin/sendmail'
+      arguments: '-i -t'
+    smtp_settings:
+      address:              smtp.gmail.com
+      port:                 587
+      domain:               localhost
+      user_name:            me@gmail.com
+      password:             asdf
+      authentication:       plain
+
+production:
+  mailer:
+    <<: *common
+
+# Disable mail delivery in tests.
+test:
+  mailer:
+    <<: *common
+    delivery_method: test
+    perform_deliveries: false

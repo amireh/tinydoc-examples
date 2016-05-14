@@ -1,0 +1,28 @@
+development:
+  oauth: &common
+    # Pibi API host
+    host: 'http://localhost:9122'
+    # Pibi.js / front-end host
+    origin: 'http://localhost'
+    facebook:
+      key: ''
+      secret: ''
+    google:
+      key: ''
+      secret: ''
+
+production:
+  oauth:
+    <<: *common
+    host: 'https://api.pibiapp.com'
+    origin: 'https://www.pibiapp.com'
+    facebook:
+      key:    ''
+      secret: ''
+    google:
+      key: ''
+      secret: ''
+
+test:
+  oauth:
+    <<: *common

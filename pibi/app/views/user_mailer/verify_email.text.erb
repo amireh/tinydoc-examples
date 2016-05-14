@@ -1,0 +1,15 @@
+Hello <%= @user.first_name %>,
+
+You've entered <<%= @user.email %>> as the contact email address for your Pibi
+account. To complete the process, we just need to verify that this email address
+belongs to you. Simply visit the link below to finish the registration.
+
+<%= user_notice_accept_url(@user, @notice.token) %>
+
+Thank you,
+The Pibi Team
+
+<%= text_hr('-') %>
+
+PS: if you are not <%= @user.name %> or didn't request this verification,
+you can safely ignore this email.

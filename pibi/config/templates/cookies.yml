@@ -1,0 +1,19 @@
+# Pibi session-based authentication is done using cookies.
+development:
+  cookies: &common
+    path:   '/'
+    secret: ''
+    domain: 'localhost'
+    expire_after: 1209600
+
+production:
+  cookies:
+    <<: *common
+    domain: '.pibiapp.com'
+    # CHANGE THE SECRET!!!
+    secret: 'change me'
+
+test:
+  cookies:
+    <<: *common
+    secret: 'test'

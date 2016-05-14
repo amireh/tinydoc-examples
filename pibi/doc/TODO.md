@@ -1,0 +1,2 @@
+- legacy importer should not import both the balance and then adjust the account's balance when transactions are created, this is causing an account to have 2x the balance
+- 

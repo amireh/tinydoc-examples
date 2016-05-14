@@ -1,0 +1,16 @@
+# OpenExchangeRates is used to populate Pibi's currencies.
+#
+# See rake pibi:currencies:update
+# See https://openexchangerates.org/
+development:
+  open_exchange_rates: &common
+    # API Token from ORE
+    app_id: ''
+
+production:
+  open_exchange_rates:
+    <<: *common
+
+test:
+  open_exchange_rates:
+    <<: *common

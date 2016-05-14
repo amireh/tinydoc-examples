@@ -1,0 +1,3 @@
+**11/29/2014**
+
+- Support for "upcoming" transactions; incomes and expenses that are not yet due (i.e, occurred_on is sometime in the future) are no longer accounted for in the account's balance *until* they are due. A data-fixup migration was written to (un)commit those transactions. Also, a new flag `committed` has been added to keep track of whether the transaction was committed to the account's balance or not.

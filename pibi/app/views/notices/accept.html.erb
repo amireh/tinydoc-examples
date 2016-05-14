@@ -1,0 +1,29 @@
+<% redirect_url = Rails.application.config.oauth[:origin] %>
+<% if @notice.present? %>
+<p>
+  <%=
+    case @notice.cause
+    when 'email_verification'
+      "Your email address #{@user.email} has been verified. Thank you."
+    else
+      'Notification accepted. Thank you.'
+    end
+  %>
+</p>
+<hr />
+
+<% end %>
+
+<p>
+  <em>
+    You will be redirected back to Pibi shortly,
+    <a href="<%= redirect_url %>">click here</a>
+    if it does not happen automatically.
+  </em>
+</p>
+
+<script>
+  setTimeout(function() {
+    window.location.href = "<%= redirect_url %>";
+  }, 2000);
+</script>

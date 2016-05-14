@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <title>Pibi - Simple (and stylish!) personal financing</title>
+
+  <style>
+    body {
+      /*text-align: center;*/
+      font: 14px "Trebuchet MS", Helvetica, Verdana, Arial, sans-serif;
+      line-height: 1.4;
+      color: #555;
+    }
+
+    a {
+      color: #3366CC;
+    }
+    .content,
+    .header {
+      width: 640px;
+      margin: 30px auto;
+    }
+
+    .header {
+      text-align: center;
+    }
+    .header img {
+      vertical-align: middle;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 5px 20px;
+      border-radius: 2px;
+      background: #2A99EF;
+      color: white;
+      text-decoration: none;
+      margin: 0;
+    }
+
+    .footer {
+      font-size: small;
+    }
+  </style>
+
+  <%= yield :css %>
+</head>
+<body>
+  <div class="header">
+    <%= image_tag attachments.inline['pibi-icon-48.png'].url, {
+      alt: 'Pibi',
+      title: 'Pibi - Personal Financing',
+      width: 48,
+      height: 48
+    } %>
+  </div>
+
+  <div class="content">
+    <p>From Pibi</p>
+
+    <%= yield %>
+  </div>
+
+  <div class="footer"></div>
+</body>
+</html>
