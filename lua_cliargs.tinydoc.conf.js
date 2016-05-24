@@ -61,14 +61,14 @@ exports.layoutOptions = {
 };
 
 exports.plugins = [
-  require('tinydoc-plugin-lua')({
+  require('megadoc-plugin-lua')({
     source: 'src/**/*.lua'
   }),
 
-  require('tinydoc-plugin-markdown')({
+  require('megadoc-plugin-markdown')({
     id: 'markdown',
     source: 'README.md'
   }),
 
-  require('tinydoc-theme-gitbooks')()
+  require('megadoc-theme-gitbooks')()
 ];

@@ -2,6 +2,9 @@
 
 var Statement = require('./statement');
 
+/**
+ * @module Query
+ */
 module.exports = exports = Statement.extend({
   /**
    * Transform the returned results.

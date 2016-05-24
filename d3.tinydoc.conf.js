@@ -12,7 +12,7 @@ var config = {
 };
 
 config.plugins = [
-  require('tinydoc-plugin-markdown')({
+  require('megadoc-plugin-markdown')({
     id: 'api',
     sanitize: false,
     // normalizeHeadings: false,
@@ -25,13 +25,13 @@ config.plugins = [
     exclude: [ /\.test\.js$/ ],
   }),
 
-  require('tinydoc-theme-qt')({}),
+  require('megadoc-theme-qt')({}),
 
   {
     run: function(compiler) {
-      var Corpus = require('tinydoc-corpus').Corpus;
-      var b = require('tinydoc-corpus').builders;
-      var utils = require('tinydoc/lib/RendererUtils');
+      var Corpus = require('megadoc-corpus').Corpus;
+      var b = require('megadoc-corpus').builders;
+      var utils = require('megadoc/lib/RendererUtils');
       var fs = require('fs');
 
       compiler.on('scan', function(done) {

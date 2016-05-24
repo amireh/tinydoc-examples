@@ -3,6 +3,7 @@ var config = {
   title: 'Pibi API',
   outputDir: '/srv/http/docs/pibi',
   assetRoot: path.resolve(__dirname, 'pibi'),
+  gitRepository: path.resolve(__dirname, 'pibi'),
   tooltipPreviews: false,
   layoutOptions: {
     bannerLinks: [
@@ -18,7 +19,6 @@ config.plugins = [
   require('tinydoc-plugin-yard-api')({
     routeName: 'api',
     command: 'bundle exec rake doc:api_json',
-
     source: [
       'public/doc/api/**/*.json',
     ],

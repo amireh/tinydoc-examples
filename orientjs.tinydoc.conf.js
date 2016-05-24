@@ -1,14 +1,9 @@
 var path = require('path');
-// ugh, seriously?
-var logo = {};
-logo[path.resolve(__dirname, 'orientdb_logo_2x11.png')] = 'images/orientdb_logo_2x11.png';
 var config = {
   title: 'orientjs',
   outputDir: '/srv/http/docs/orientjs',
   assetRoot: path.resolve(__dirname, 'orientjs'),
   tooltipPreviews: false,
-  assets: [ logo ],
-  stylesheet: path.resolve(__dirname, './orientjs.less'),
   layoutOptions: {
     rewrite: {
       '/articles/readme.html': '/index.html',
@@ -24,28 +19,39 @@ var config = {
 };
 
 config.plugins = [
-  require('tinydoc-plugin-js')({
+  require('megadoc-plugin-js')({
     id: 'api',
     source: 'lib/**/*.js',
     exclude: [ /\.test\.js$/, /vendor/, ],
     alias: {
-      'ODatabase': [ 'Db' ]
+      'ODatabase': [ 'Db', 'ODatabase' ],
+      'RecordID': [ 'RID' ],
     },
 
     namedReturnTags: false,
     namespaceDirMap: {
       'lib/db': 'Database',
+      'lib/transport/binary/protocol19': 'Transports.Binary.Protocol-19',
+      'lib/transport/binary/protocol26': 'Transports.Binary.Protocol-26',
+      'lib/transport/binary/protocol28': 'Transports.Binary.Protocol-28',
       'lib/transport/binary': 'Transports.Binary',
       'lib/transport/rest': 'Transports.Rest',
-    }
+    },
+
+    builtInTypes: [
+      'Integer',
+      'Mixed',
+      'true',
+      'false'
+    ]
   }),
 
-  require('tinydoc-plugin-markdown')({
+  require('megadoc-plugin-markdown')({
     id: 'articles',
     source: 'README.md'
   }),
 
-  require('tinydoc-theme-qt')({}),
+  require('megadoc-theme-qt')({}),
 ];
 
 module.exports = config;
